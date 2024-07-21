@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 // TRIM VECTOR method
 //go through vector and grab just the usernames of the followers
 vector<string> trimVector(vector<string> &vec) {
@@ -41,12 +40,6 @@ vector<string> readFile(string filename) {
 }
 
 
-
-
-
-
-
-
 int main() {
     
     //read files
@@ -61,20 +54,18 @@ int main() {
     int followerCount = followerUsernameVector.size();
     int followingCount = followingUsernameVector.size();
 
-    //print out list
-    for(int i = 0; i < followingUsernameVector.size(); i++)
-    {
-        cout << followingUsernameVector[i] << endl;
-    }
-
-    //TODO sort alphabetically
-    //sort(followerUsernameVector.begin(), followerUsernameVector.end());
+    //sort alphabetically, might not be necessary
+    sort(followerUsernameVector.begin(), followerUsernameVector.end());
     sort(followingUsernameVector.begin(), followingUsernameVector.end());
 
-    //print out (hopefully) sorted list
+    vector<string> wannaBes;
+
     for(int i = 0; i < followingUsernameVector.size(); i++)
     {
-        cout << followingUsernameVector[i] << endl;
+        if(find(followerUsernameVector.begin(), followerUsernameVector.end(), followingUsernameVector[i]) == followerUsernameVector.end())
+        {
+            wannaBes.push_back(followingUsernameVector[i]);
+        }
     }
 
     //output to the user
@@ -89,7 +80,13 @@ int main() {
     cout << "You have " << followerCount << " followers." << endl;
     cout << "You are following " << followingCount << " people." << endl;
     cout << "--------------------------------" << endl;
-    
+
+    cout << "These people don't follow you back:" << endl;
+    for(int i = 0; i < wannaBes.size(); i++)
+    {
+        cout << wannaBes[i] << endl;
+    }
+
     return 0;
 }
 
