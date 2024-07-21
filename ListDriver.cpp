@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+// TRIM VECTOR method
 //go through vector and grab just the usernames of the followers
 vector<string> trimVector(vector<string> &vec) {
     vector<string> newVec;
@@ -19,53 +21,63 @@ vector<string> trimVector(vector<string> &vec) {
     return newVec;
 }
 
-int main() {
-
-    //open files
-    ifstream initFollowers("followersData.txt");
-    ifstream initFollowing("followingData.txt"); 
-
+// READ FILE method
+//read file line by line and add contents to vector
+vector<string> readFile(string filename) {
+    ifstream file(filename);
     string currFollower;
-    vector<string> unsortedFollowerVector;
-    vector<string> unsortedFollowingVector;
+    vector<string> fileContent;
 
-    //read followerData.txt, add to unsortedFollowerVector
-    if(initFollowers.is_open()) {
-        while (getline(initFollowers, currFollower)) {
-            unsortedFollowerVector.push_back(currFollower);
+    if(file.is_open()) {
+        while (getline(file, currFollower)) {
+            fileContent.push_back(currFollower);
         }
     } 
     else {
         cout << "File not open" << endl;
     }
 
-    //read followingData.txt, add to unsortedFollowingVector
-    if(initFollowing.is_open()) {
-        while (getline(initFollowing, currFollower)) {
-            unsortedFollowingVector.push_back(currFollower);
-        }
-    } 
-    else {
-        cout << "File not open" << endl;
-    }
+    return fileContent;
+}
 
 
 
 
+
+
+
+
+int main() {
+    
+    //read files
+    vector<string> unsortedFollowerVector = readFile("followersData.txt");
+    vector<string> unsortedFollowingVector = readFile("followingData.txt");
+ 
+    //trim contents
     vector<string> followerUsernameVector = trimVector(unsortedFollowerVector);
     vector<string> followingUsernameVector = trimVector(unsortedFollowingVector);
 
+    //determine sizes
     int followerCount = followerUsernameVector.size();
     int followingCount = followingUsernameVector.size();
 
     //print out list
-    for(int i = 0; i < followerUsernameVector.size(); i++)
+    for(int i = 0; i < followingUsernameVector.size(); i++)
     {
-        cout << followerUsernameVector[i] << endl;
+        cout << followingUsernameVector[i] << endl;
     }
 
     //TODO sort alphabetically
     //sort(followerUsernameVector.begin(), followerUsernameVector.end());
+    sort(followingUsernameVector.begin(), followingUsernameVector.end());
+
+    //print out (hopefully) sorted list
+    for(int i = 0; i < followingUsernameVector.size(); i++)
+    {
+        cout << followingUsernameVector[i] << endl;
+    }
+
+    //output to the user
     cout << "What is your Instagram username?" << endl;
 
     string username;
@@ -74,11 +86,10 @@ int main() {
     cout << "--------------------------------" << endl;
     cout << "Hello, " << username << "!" << endl;
     cout << "--------------------------------" << endl;
-
-    //print out follower count and following count
     cout << "You have " << followerCount << " followers." << endl;
     cout << "You are following " << followingCount << " people." << endl;
-
+    cout << "--------------------------------" << endl;
+    
     return 0;
 }
 
