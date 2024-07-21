@@ -44,7 +44,7 @@ int main() {
     
     //read files
     vector<string> unsortedFollowerVector = readFile("followersData.txt");
-    vector<string> unsortedFollowingVector = readFile("followingData.txt");
+    vector<string> unsortedFollowingVector = readFile("followingData2.txt");
  
     //trim contents
     vector<string> followerUsernameVector = trimVector(unsortedFollowerVector);
@@ -68,6 +68,10 @@ int main() {
         }
     }
 
+    // for(int i = 0; i < followingUsernameVector.size(); i++)
+    // {
+    //     cout << followingUsernameVector[i] << endl;
+    // }
     //output to the user
     cout << "What is your Instagram username?" << endl;
 
