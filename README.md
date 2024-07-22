@@ -1,6 +1,6 @@
 # Instagram Followers
 
-C++ program to determine your Instagram Mutuals. 
+**C++ program to determine your Instagram Mutuals**
 
 Tired of seeing your follower count go down while you still follow the same amount of people? Who are these fakes? **Who doesn't follow me back?** :angry:
 
