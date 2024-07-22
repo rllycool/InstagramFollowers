@@ -1,11 +1,13 @@
-# InstagramFollowers
+# Instagram Followers
 
-C++ program to find determine Instagram Mutuals.
+C++ program to determine your Instagram Mutuals. 
 
-Tired of seeing your follower count go down while you still follow the same amount of people? Who are these fakes?
+Tired of seeing your follower count go down while you still follow the same amount of people? Who are these fakes? **Who doesn't follow me back?** :angry:
+
+
 This program takes two txt file lists of your followers and your following on Instagram, and then tells you who does not follow back.
 
-Then you can happily unfollow the people who think that they deserve fans. :heart:
+Then you can happily unfollow the people who think that they deserve fans :heart:
 
 ![Program Output](followerOutput.png)
 
