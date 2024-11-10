@@ -7,6 +7,7 @@ Tired of seeing your follower count go down while you still follow the same amou
 
 This program takes two txt file lists of your followers and your following on Instagram, and then tells you who does not follow back.
 
+
 Then you can happily unfollow the people who think that they deserve fans :heart:
 
 ![Program Output](followerOutput.png)
